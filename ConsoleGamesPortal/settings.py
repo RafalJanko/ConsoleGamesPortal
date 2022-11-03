@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-m8f96%hn5w*)z#izrncb*^wfh28v^7!l81mbasnq&ae$n81jl)'
+SECRET_KEY = 'django-insecure-qnv@lzhex_&xiiw(lg$htm-m=65cilpkr*et0^z@)p*9$4%ydq'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -55,7 +55,8 @@ ROOT_URLCONF = 'ConsoleGamesPortal.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates']
+        ,
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
