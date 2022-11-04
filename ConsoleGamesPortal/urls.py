@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from portal.views import TimerView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('timer/', TimerView, name='timer'),
 ]
