@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add milestones</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body>
+<form>
+  <select id="ddlViewBy" name="game">
+    {% for game in games %}
+    <option value="game">{{ game.title }}</option>
+            {% endfor %}
+  </select>
+<script>
+function add_field()
+{
+  var total_text=document.getElementsByClassName("input_text");
+  total_text=total_text.length+1;
+  document.getElementById("field_div").innerHTML=document.getElementById("field_div").innerHTML+
+  "<p id='input_text"+total_text+"_wrapper'><input type='text' class='input_text' id='input_text"+total_text+"' placeholder='Enter Text'><input type='button' value='Remove' onclick=remove_field('input_text"+total_text+"');></p>";
+}
+function remove_field(id)
+{
+  document.getElementById(id+"_wrapper").innerHTML="";
+}
+</script>
+<div id="wrapper">
+<div id="field_div">
+<input type="button" value="Add new field" onclick="add_field();">
+</div>
+</div>
+<input type="submit" name="Submit" value="Submit">
+</form>
+</body>
+</html>

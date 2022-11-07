@@ -10,6 +10,7 @@ from django.contrib.auth.models import User
 from django.contrib.sessions.models import Session
 from django.contrib.auth.mixins import (LoginRequiredMixin,
                                         PermissionRequiredMixin)
+from portal.models import Game
 
 # Create your views here.
 
@@ -83,3 +84,12 @@ def CreateGameView(request):
         title = request.POST.get("title")
         Game.objects.create(title=title, user_id=request.user.id)
         return render(request, 'portal/timer.html')
+
+
+def CreateCheckPoints(request):
+    if request.method == "GET":
+        games = Game.objects.filter(user_id=request.user.id)
+        numbers = set(list(range(1, 101)))
+        return render(request, "portal/add_checkpoints.html", {"games": games, "numbers": numbers})
+    if request.method == "POST":
+        pass

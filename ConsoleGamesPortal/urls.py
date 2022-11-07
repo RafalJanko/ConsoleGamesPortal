@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from portal.views import login_view, register_view, CreateGameView, TimerView
+from portal.views import login_view, register_view, CreateGameView, TimerView, CreateCheckPoints
 
 urlpatterns = [
 path("", login_view, name="index"),
@@ -24,6 +24,7 @@ path("", login_view, name="index"),
     path("register", register_view, name="register"),
     path('admin/', admin.site.urls),
     path('timer/', TimerView, name='timer'),
-    path('add_game', CreateGameView, name="add_game")
+    path('add_game', CreateGameView, name="add_game"),
+    path('checkpoints', CreateCheckPoints, name="checkpoints"),
 
 ]
