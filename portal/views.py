@@ -12,6 +12,7 @@ from django.contrib.auth.mixins import (LoginRequiredMixin,
                                         PermissionRequiredMixin)
 from portal.models import Game
 
+
 # Create your views here.
 
 @csrf_exempt
@@ -92,4 +93,8 @@ def CreateCheckPoints(request):
         numbers = set(list(range(1, 101)))
         return render(request, "portal/add_checkpoints.html", {"games": games, "numbers": numbers})
     if request.method == "POST":
-        pass
+        games = Game.objects.filter(user_id=request.user.id)
+        numbers = set(list(range(1, 101)))
+        game = request.POST.get("gamex")
+        print(game)
+        return render(request, "portal/add_checkpoints.html", {"games": games, "numbers": numbers})

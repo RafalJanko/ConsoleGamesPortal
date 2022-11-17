@@ -9,10 +9,11 @@
 </head>
 {% block content %}
 <body>
-<form>
-  <select id="ddlViewBy" name="game">
+<form method="post">
+{% csrf_token %}
+  <select id="gamex" name="gamex">
     {% for game in games %}
-    <option value="game">{{ game.title }}</option>
+    <option value="{{ game.title }}" id="{{ game.title }}">{{ game.title }}</option>
             {% endfor %}
   </select>
 <script>
@@ -33,7 +34,7 @@ function remove_field(id)
 <input type="button" value="Add new field" onclick="add_field();">
 </div>
 </div>
-<input type="submit" name="Submit" value="Submit">
+<input type="submit" name="Submit" value="Submit" >
 </form>
 {% endblock %}
 </body>
